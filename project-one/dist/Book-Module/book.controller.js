@@ -17,10 +17,20 @@ const common_1 = require("@nestjs/common");
 const book_dto_1 = require("./Dto/book.dto");
 const book_pipe_1 = require("./pipe/book.pipe");
 const bookclass_pipe_1 = require("./pipe/bookclass.pipe");
+const book_exception_1 = require("./exceptions/book.exception");
+const book_exception_filter_1 = require("./exceptions/book.exception.filter");
 let BookController = class BookController {
     findBookById(id) {
         console.log(id, typeof id);
         return "this will return books by id";
+    }
+    getBook() {
+        throw new book_exception_1.BookException();
+        return "book exception";
+    }
+    getBookV2() {
+        throw new common_1.BadRequestException();
+        return "book exception";
     }
     addBook(book) {
         return "this will add a book";
@@ -40,6 +50,19 @@ __decorate([
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", String)
 ], BookController.prototype, "findBookById", null);
+__decorate([
+    (0, common_1.Put)('/fault'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", String)
+], BookController.prototype, "getBook", null);
+__decorate([
+    (0, common_1.Put)('/fault/v2'),
+    (0, common_1.UseFilters)(book_exception_filter_1.BookExceptionFilter),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", String)
+], BookController.prototype, "getBookV2", null);
 __decorate([
     (0, common_1.Post)('/add'),
     __param(0, (0, common_1.Body)(new book_pipe_1.BookPipe())),
