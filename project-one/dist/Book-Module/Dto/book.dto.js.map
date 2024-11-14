@@ -1,1 +1,1 @@
-{"version":3,"file":"book.dto.js","sourceRoot":"","sources":["../../../src/Book-Module/Dto/book.dto.ts"],"names":[],"mappings":";;;AAEA,MAAa,OAAO;CAGnB;AAHD,0BAGC"}
+{"version":3,"file":"book.dto.js","sourceRoot":"","sources":["../../../src/Book-Module/Dto/book.dto.ts"],"names":[],"mappings":";;;;;;;;;;;;AAAA,qDAAsD;AAGtD,MAAa,OAAO;CAGnB;AAHD,0BAGC;AAED,MAAa,SAAS;CAMrB;AAND,8BAMC;AAJG;IADC,IAAA,0BAAQ,GAAE;;qCACA;AAGX;IADC,IAAA,0BAAQ,GAAE;;uCACC"}

@@ -16,6 +16,7 @@ exports.BookController = void 0;
 const common_1 = require("@nestjs/common");
 const book_dto_1 = require("./Dto/book.dto");
 const book_pipe_1 = require("./pipe/book.pipe");
+const bookclass_pipe_1 = require("./pipe/bookclass.pipe");
 let BookController = class BookController {
     findBookById(id) {
         console.log(id, typeof id);
@@ -23,6 +24,12 @@ let BookController = class BookController {
     }
     addBook(book) {
         return "this will add a book";
+    }
+    addBookClassV2(book) {
+        return "this will add a book via class pipe";
+    }
+    addBookClassV3(book) {
+        return "this will add a book via class pipe";
     }
 };
 exports.BookController = BookController;
@@ -40,6 +47,20 @@ __decorate([
     __metadata("design:paramtypes", [book_dto_1.BookDto]),
     __metadata("design:returntype", String)
 ], BookController.prototype, "addBook", null);
+__decorate([
+    (0, common_1.Post)('/add/v2'),
+    __param(0, (0, common_1.Body)(new bookclass_pipe_1.BookClassPipe())),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [book_dto_1.BookDtoV2]),
+    __metadata("design:returntype", String)
+], BookController.prototype, "addBookClassV2", null);
+__decorate([
+    (0, common_1.Post)('/add/v3'),
+    __param(0, (0, common_1.Body)(new common_1.ValidationPipe())),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [book_dto_1.BookDtoV2]),
+    __metadata("design:returntype", String)
+], BookController.prototype, "addBookClassV3", null);
 exports.BookController = BookController = __decorate([
     (0, common_1.Controller)("books")
 ], BookController);
